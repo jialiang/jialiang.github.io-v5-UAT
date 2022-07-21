@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff" />
+
+    <title>Jia Liang | Software Engineer</title>
+    <meta name="description" content="Personal website of software engineer, Jia Liang" />
+    <meta name="author" content="Jia Liang, hojialiang@yahoo.com" />
+
+    <link rel="icon" type="image/x-icon" href="https://jialiang.github.io/favicon.png" />
+    <link rel="canonical" href="https://jialiang.github.io/" />
+
+    <link rel="preload" href="./images/bg-2-2560 (optimized).avif" as="image" type="image/avif" />
+
+    <style>
+      @font-face {
+        font-family: "Noto Serif JP";
+        font-weight: 400;
+        font-style: normal;
+
+        src: url(./fonts/noto-serif-jp-regular.woff) format("woff");
+      }
+
+      @font-face {
+        font-family: "Noto Serif JP";
+        font-weight: 700;
+        font-style: normal;
+
+        src: url(./fonts/noto-serif-jp-bold.woff) format("woff");
+      }
+
+      @font-face {
+        font-family: "Chihaya Jun";
+        font-weight: 400;
+        font-style: normal;
+
+        src: url(./fonts/chihaya-jun.woff2) format("woff2"),
+          url(./fonts/chihaya-jun.woff) format("woff");
+      }
+
+      ::selection,
+      ::selection {
+        background: yellow;
+      }
+
+      html {
+        font-family: "Noto Serif JP";
+        color: black;
+        background: white;
+      }
+
+      @media (max-width: 22.5rem) {
+        html {
+          font-size: 4.44vw;
+        }
+      }
+
+      body {
+        margin: 0;
+        text-align: center;
+      }
+
+      .inner-body {
+        overflow: hidden;
+        width: 100%;
+        margin: auto;
+      }
+
+      a {
+        padding: 0 2px;
+        text-decoration: none;
+        color: blue;
+        border: 1px solid rgba(255, 255, 255, 0);
+      }
+
+      a:focus {
+        border-color: cyan;
+        outline: none;
+        background: lightcyan;
+      }
+
+      a:hover {
+        color: #d300ff;
+      }
+
+      #background {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        margin: auto;
+        transition: 0.35s opacity;
+        opacity: 0;
+        box-shadow: 0 0 1rem black, 0 0 0.5rem rgba(0, 0, 0, 0.25);
+      }
+
+      @media (max-aspect-ratio: 16 / 9) {
+        #background {
+          top: 0;
+          right: auto;
+          bottom: auto;
+          left: 50vw;
+          width: auto;
+          height: 100vh;
+          transform: translateX(-50%);
+        }
+      }
+
+      header {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        margin: 5rem 1rem 9rem 1rem;
+        padding: 2em 2em 3em 1.5em;
+        text-align: left;
+        border-radius: 5em;
+        background: #6af6ff;
+        background: linear-gradient(
+              to right,
+              rgba(32, 224, 255, 0.5) 50%,
+              rgba(255, 255, 255, 0) 51%
+            )
+            0 0/3em 100% repeat-x,
+          linear-gradient(to bottom, rgba(32, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 51%) 0 0/100%
+            3em repeat-y,
+          #b5edff;
+        box-shadow: rgba(0, 0, 0, 0.25) 0.5em 0.5em 1em 0;
+      }
+
+      header h1,
+      header h2 {
+        line-height: 1;
+        margin: 0;
+      }
+
+      header h1 {
+        font-size: 4.15em;
+        font-weight: 700;
+        margin-bottom: 0.25em;
+      }
+
+      header h2 {
+        font-size: 3em;
+        font-weight: 400;
+      }
+
+      @media (max-width: 36.5rem) {
+        header {
+          max-width: 19em;
+        }
+      }
+
+      @media (max-width: 24.0625rem) {
+        header {
+          font-size: 4vw;
+        }
+      }
+
+      #particles {
+        position: fixed;
+        top: 22.5vh;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 25vh;
+        min-height: 160px;
+        max-height: 50vw;
+        margin: auto;
+        transition: 0.5s opacity;
+      }
+
+      #links {
+        font-size: 1.2em;
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        padding: 1rem;
+        list-style: none;
+      }
+
+      #links li {
+        display: inline-block;
+        margin: 0 0.5em 0.5rem 0.5rem;
+      }
+
+      #links a {
+        line-height: 2;
+        padding: 0 0.5em 0.15em 0.5em;
+        color: black;
+        border: 3px solid rgba(255, 255, 255, 0);
+        border-radius: 1em;
+        background: snow;
+        box-shadow: rgba(0, 0, 0, 0.25) 0.5rem 0.5rem 1rem 0;
+      }
+
+      #links a:hover,
+      #links a:focus {
+        border-color: cyan;
+        outline: none;
+        background: lightcyan;
+      }
+
+      #links svg {
+        position: relative;
+        top: -1px;
+        width: 1rem;
+        height: 1em;
+        height: 1rem;
+        margin-right: 0.15em;
+        vertical-align: middle;
+
+        fill: black;
+      }
+
+      section {
+        font-family: "Chihaya Jun";
+        line-height: 0.9;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 12.5rem;
+        text-align: left;
+        letter-spacing: -0.1em;
+      }
+
+      section h2 {
+        font-size: 2.75rem;
+        font-weight: 500;
+        text-align: center;
+        color: black;
+      }
+
+      .paper-edge {
+        position: absolute;
+        top: 0;
+        left: -23px;
+        width: 25px;
+        height: 100%;
+        background: url(./images/paper-edge.png) 0 0/100% auto repeat-y;
+      }
+
+      #usp {
+        text-align: center;
+      }
+
+      #usp .paper {
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+        width: 32rem;
+        max-width: calc(100% - 2rem);
+        margin: 0 1rem;
+        padding: 1rem 1rem 4rem 2rem;
+        text-align: left;
+        border-radius: 4px;
+        background: url("./images/paper (optimized).jpg");
+        background: linear-gradient(to bottom, aqua 1px, rgba(255, 255, 255, 0) 0) 50% -1px/95% 2.3rem
+            repeat-y,
+          url("./images/paper (optimized).jpg");
+        box-shadow: rgba(0, 0, 0, 0.25) 0.5rem 0.5rem 1rem 0;
+      }
+
+      @media (max-width: 20.625rem) {
+        #usp .paper {
+          padding-left: 0.75rem;
+        }
+      }
+
+      #usp ul {
+        font-size: 2.25rem;
+        color: #002d5c;
+      }
+
+      #usp li {
+        margin-bottom: 1.5rem;
+      }
+
+      #usp .resume {
+        font-size: 1.75rem;
+        font-weight: 500;
+        border-bottom: 6px double;
+      }
+
+      #usp .orange-patch {
+        position: absolute;
+        z-index: 1;
+        top: -6rem;
+        left: -5rem;
+        width: 12.5rem;
+      }
+
+      #usp .star-badge {
+        position: absolute;
+        z-index: 1;
+        right: -3.5rem;
+        bottom: -6.5rem;
+        width: 12.5rem;
+      }
+
+      @media (max-width: 27.5rem) {
+        #usp .star-badge {
+          bottom: -8.5rem;
+        }
+      }
+
+      #projects {
+        width: 53rem;
+        max-width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+      }
+
+      #projects .bunny {
+        position: absolute;
+        z-index: 2;
+        top: -2.5rem;
+        left: -5rem;
+        width: 7.5rem;
+      }
+
+      #projects h2 {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 2rem;
+        margin-left: 2rem;
+        padding: 1rem 2rem;
+        transform: rotate(-2deg);
+        border: 0.5rem double aquamarine;
+        border-radius: 0.5rem;
+        background: #fcf7dd;
+        background: linear-gradient(
+              to bottom,
+              rgba(255, 255, 255, 0) 1px,
+              pink 2px,
+              rgba(255, 255, 255, 0) 3px
+            )
+            0 1rem/100% 2.5rem,
+          linear-gradient(to bottom, rgba(255, 255, 255, 0) 1px, aqua 2px, rgba(255, 255, 255, 0) 0)
+            0 1.25rem/100% 2.5rem,
+          linear-gradient(
+              to right,
+              rgba(255, 255, 255, 0) 1px,
+              pink 2px,
+              rgba(255, 255, 255, 0) 3px
+            )
+            1.5rem 0/2.5rem 100%,
+          linear-gradient(to right, rgba(255, 255, 255, 0) 1px, aqua 2px, rgba(255, 255, 255, 0) 0)
+            1.25rem 0/2.5rem 100%,
+          #fcf7dd;
+        box-shadow: rgba(0, 0, 0, 0.25) 0.5rem 0.5rem 1rem 0;
+      }
+
+      @media (max-width: 27.5rem) {
+        #projects .bunny {
+          top: -1rem;
+        }
+
+        #projects h2 {
+          width: 10.5rem;
+        }
+      }
+
+      #projects ul {
+        font-size: 0;
+        padding: 0 0.25rem;
+        list-style: none;
+      }
+
+      @media (max-width: 53rem) {
+        #projects ul {
+          overflow: auto;
+          white-space: nowrap;
+
+          scrollbar-color: white transparent;
+        }
+      }
+
+      #projects li {
+        display: inline-block;
+      }
+
+      #projects li a {
+        display: inline-block;
+        overflow: hidden;
+        box-sizing: border-box;
+        width: 16rem;
+        margin: 1.5rem 0.75rem;
+        padding: 0.5rem;
+        white-space: normal;
+        color: snow;
+        border: 3px solid rgba(255, 255, 255, 0);
+        border-radius: 0.5rem;
+        background: snow;
+        box-shadow: rgba(0, 0, 0, 0.25) 0.5rem 0.5rem 1rem 0;
+      }
+
+      #projects li a:hover,
+      #projects li a:focus {
+        border-color: cyan;
+        background: lightcyan;
+      }
+
+      #projects li a:hover .title,
+      #projects li a:focus-visible .title {
+        border-bottom-color: cyan;
+      }
+
+      #projects li img {
+        box-sizing: border-box;
+        width: 100%;
+        transform: rotate(-1deg);
+        box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.25);
+      }
+
+      #projects li .title {
+        font-size: 1.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        height: 7.5rem;
+        padding: 1rem 0.5rem 1rem 0.5rem;
+        color: black;
+        border-bottom: 3px double deepskyblue;
+      }
+
+      #projects li .title div {
+        width: 100%;
+      }
+
+      #projects .button-container {
+        display: none;
+        justify-content: space-between;
+        margin: 1rem 0 0 0;
+        padding: 0 1rem;
+      }
+
+      @media (max-width: 53rem) {
+        #projects .button-container {
+          display: flex;
+        }
+      }
+
+      #projects .button-container button {
+        font-family: "Chihaya Jun";
+        font-size: 1.75rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        letter-spacing: -0.1em;
+        border: 2px solid aquamarine;
+        background: #fcf7dd;
+        box-shadow: rgba(0, 0, 0, 0.25) 0.5rem 0.5rem 1rem 0;
+      }
+
+      #projects .button-container .left-arrow {
+        padding-left: 1rem;
+        transform: rotate(5deg);
+        text-align: right;
+        border-top-left-radius: 2rem;
+        border-top-right-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+        border-bottom-left-radius: 2rem;
+      }
+
+      #projects .button-container .right-arrow {
+        padding-right: 1rem;
+        transform: rotate(-5deg);
+        text-align: left;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+        border-bottom-left-radius: 0.25rem;
+      }
+
+      #projects .button-container .left-arrow span,
+      #projects .button-container .right-arrow span {
+        border-top: 3px double pink;
+        border-bottom: 3px double pink;
+      }
+
+      #me {
+        padding: 0 1rem;
+      }
+
+      #me .paper {
+        position: relative;
+        box-sizing: border-box;
+        width: 40rem;
+        max-width: 100%;
+        margin: auto;
+        padding: 2rem 2rem 4rem 2rem;
+        border-radius: 4px;
+        background: url("./images/paper (optimized).jpg");
+        box-shadow: rgba(0, 0, 0, 0.25) 0.5rem 0.5rem 1rem 0;
+      }
+
+      #me .header {
+        max-width: 100%;
+        margin: -8rem auto -1rem auto;
+        text-align: center;
+      }
+
+      #me .flower-1 {
+        width: 12.5rem;
+        vertical-align: middle;
+      }
+
+      #me h2 {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 17rem;
+        max-width: 100%;
+        margin: 0;
+        padding: 1rem;
+        vertical-align: middle;
+        border: 6px double darkorange;
+        border-radius: 2rem;
+        background: beige;
+        background: beige url(./images/circles.png) 0 0 / auto 100% repeat-x;
+        box-shadow: rgba(0, 0, 0, 0.25) 0.5rem 0.5rem 1rem 0;
+      }
+
+      @media (max-width: 38.75rem) {
+        #me .header {
+          width: 18rem;
+          margin-bottom: 4rem;
+        }
+
+        #me h2 {
+          transform: rotate(-2deg);
+        }
+
+        #me .paper {
+          background-position: 50% 1.67rem;
+        }
+      }
+
+      #me p,
+      #me ol,
+      #me ul {
+        font-family: "Noto Serif JP";
+        font-size: 1.15rem;
+        line-height: 2.3rem;
+        margin: 2.3rem 0;
+        padding-bottom: 1px;
+        letter-spacing: 0;
+        background: linear-gradient(to bottom, aqua 1px, rgba(255, 255, 255, 0) 0) 0 0/100% 2.3rem
+          repeat-y;
+      }
+
+      #me ol,
+      #me ul {
+        margin-top: -2.3rem;
+        background-position: 0 -1px;
+      }
+
+      .rainbow {
+        position: relative;
+        z-index: 1;
+        height: 4px;
+        background: linear-gradient(to right, red, orange, yellow, lime, aqua, purple);
+      }
+
+      #credits {
+        font-family: "Noto Serif JP";
+        line-height: 1.33;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 0;
+        padding: 1rem;
+        text-align: center;
+        letter-spacing: 0;
+        color: #333;
+        background: snow;
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.25);
+      }
+    </style>
+
+    <noscript>
+      <style>
+        header {
+          opacity: 1 !important;
+        }
+
+        #projects .button-container {
+          display: none !important;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body>
+    <div class="inner-body">
+      <picture>
+        <source type="image/avif" srcset="./images/bg-2-2560%20(optimized).avif" />
+        <source type="image/webp" srcset="./images/bg-2-1920%20(optimized).webp" />
+        <img
+          id="background"
+          src="./images/bg-2-1920%20(optimized).jpg"
+          alt=""
+          onload="this.style.opacity = '1';"
+        />
+      </picture>
+
+      <canvas id="particles"></canvas>
+
+      <ul id="links">
+        <li
+          ><a href="https://github.com/jialiang" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
+              <path
+                d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
+              ></path>
+            </svg>
+            <span>github.com/jialiang</span>
+          </a></li
+        >
+        <li
+          ><a href="mailto:hojialiang@yahoo.com">
+            <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
+              <path
+                d="M12 12.713.015 3h23.971L12 12.713zm-5.425-1.822L0 5.562v12.501l6.575-7.172zm10.85 0L24 18.063V5.562l-6.575 5.329zm-1.557 1.261L12 15.287l-3.868-3.135L.022 21h23.956l-8.11-8.848z"
+              ></path>
+            </svg>
+            <span>hojialiang@yahoo.com</span></a
+          ></li
+        >
+        <li
+          ><a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSd1YnFT3TzASLxainoYNSd3VFSvdypBARAjs2H3Qy1QE5wFhg/viewform?usp=sf_link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
+              <path
+                d="M13.74 8s1.53-8-3.33-8H2v24h20V11c0-3.42-5.25-3.75-8.26-3zM18 19H6v-1h12v1zm0-3H6v-1h12v1zm0-3H6v-1h12v1zM14.57.07c2.2 1.18 5.94 4.89 7.43 6.89a8.82 8.82 0 0 0-6.1-1.18c.23-1.47-.18-4.54-1.33-5.7z"
+              />
+            </svg>
+            <span>Contact</span></a
+          ></li
+        >
+      </ul>
+
+      <header>
+        <h1>Jia Liang</h1>
+        <h2>Software Engineer</h2>
+      </header>
+
+      <section id="usp">
+        <div class="paper">
+          <div class="paper-edge"></div>
+
+          <img class="orange-patch" src="./images/orange-patch.svg" alt="" aria-hidden="true" />
+
+          <h2>Summary</h2>
+          <ul>
+            <li><span>4 years Experience.</span></li>
+            <li><span>Full-Stack JavaScript.</span></li>
+            <li><span>Exceptional Frontend.</span></li>
+            <li><span>Information Systems Graduate.</span></li>
+          </ul>
+          <div>
+            <a href="/resume%20-%20Jia%20Liang.pdf" class="resume" rel="noreferrer noopener">
+              View my Resume
+            </a>
+          </div>
+
+          <img class="star-badge" src="./images/star-badge.svg" alt="" aria-hidden="true" />
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2
+          ><img class="bunny" src="./images/bunny.svg" alt="" aria-hidden="true" /> Personal
+          Projects</h2
+        >
+
+        <ul>
+          <li>
+            <a href="/3D-Engine-For-Miku/" rel="noreferrer noopener">
+              <picture>
+                <source type="image/webp" srcset="./images/miku-cover%20(optimized).webp" />
+                <img
+                  src="./images/miku-cover%20(optimized).jpg"
+                  alt="Hatsune Miku posing for the camera"
+                />
+              </picture>
+              <div class="title"><div>3D Engine for Miku</div></div>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/jialiang/HTML-to-PDF-UA/" rel="noreferrer noopener">
+              <img src="./images/pdf-cover.png" alt="Red PDF logo with white bold PDF text" />
+              <div class="title"><div>HTML to PDF/UA-compliant PDF</div></div>
+            </a>
+          </li>
+          <li>
+            <a href="/space-gems/" rel="noreferrer noopener">
+              <picture>
+                <source type="image/webp" srcset="./images/space-gem-cover%20(optimized).webp" />
+                <img
+                  src="./images/space-gem-cover%20(optimized).jpg"
+                  alt="Screenshot of the Space Gems game"
+                />
+              </picture>
+              <div class="title"><div>Space Gems</div></div>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/jialiang/ShitCompressor" rel="noreferrer noopener">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="./images/shit-compressor-cover%20(optimized).webp"
+                />
+                <img
+                  src="./images/shit-compressor-cover%20(optimized).jpg"
+                  alt="Screenshot of the UI of the Shit Compressor programme"
+                />
+              </picture>
+              <div class="title"><div>Shit Compressor</div></div>
+            </a>
+          </li>
+          <li>
+            <a href="/ygo-ocg-secret-rare/" rel="noreferrer noopener">
+              <picture>
+                <source type="image/webp" srcset="./images/yugioh-cover%20(optimized).webp" />
+                <img
+                  src="./images/yugioh-cover%20(optimized).jpg"
+                  alt="Headshot of Madamme Verre"
+                />
+              </picture>
+              <div class="title"><div>Yu-Gi-Oh Secret Rare Effect with CSS</div></div>
+            </a>
+          </li>
+          <li>
+            <a href="/pure-css-android-12-scallop-clock/">
+              <img
+                src="./images/clock-cover.png"
+                alt="Picture of beige analog clock with scallop outline"
+              />
+              <div class="title">Pure CSS Android 12 Clock</div>
+            </a>
+          </li>
+        </ul>
+        <div class="button-container">
+          <button class="left-arrow"><span>Prev</span></button>
+          <button class="right-arrow"><span>Next</span></button>
+        </div>
+      </section>
+
+      <section id="me">
+        <div class="paper">
+          <div class="paper-edge"></div>
+
+          <div class="header">
+            <img class="flower-1" src="./images/flower.svg" alt="" />
+            <h2>About Me</h2>
+          </div>
+
+          <p
+            >Currently, I&rsquo;m working as a full stack developer. Our tech team consists of seven
+            people. We&rsquo;re currently on a hybrid work arrangement.</p
+          >
+          <p
+            >My company promotes interior designers on our platform to homeowners looking to
+            renovate. We have several web and mobile applications. I mainly work on the public
+            website and our own custom ERP (Enterprise Resource Planning) tool. We get millions of
+            page views per month for our public website.</p
+          >
+          <p
+            >My tasks are split evenly between frontend and backend. I develop new features, fix
+            bugs, do code reviews and help with tech-related matters.</p
+          >
+          <p>New features are usually things to:</p>
+          <ul>
+            <li>Improve conversions (e.g. website redesigns, A/B testing).</li>
+            <li>Improve efficiency (e.g. automation, data transformation).</li>
+            <li>Improve traffic (e.g. SEO improvements).</li>
+            <li>Improve data collection (e.g. event-based tracking, journey analytics).</li>
+          </ul>
+          <p>Tech support involves stuff like:</p>
+          <ul>
+            <li>Creating new reports in our business intelligence tool.</li>
+            <li>Advising on technical feasibility of ideas.</li>
+            <li
+              >Setting up tools like Facebook Pixels, Google Tag Manager, Shopify and Unbounce.</li
+            >
+          </ul>
+          <p
+            >We use Kanban boards to organise our tasks and work through them in order of priority.
+            We see our task to completion independently and liaise with stakeholders as needed. For
+            example, marketing for copy, UI designer for mock-ups, translator for translations,
+            department heads for clarifications etc.</p
+          >
+          <p
+            >I mainly work with React, Redux, JavaScript, HTML, Sass and PostgreSQL. Rarely, my
+            tasks involve MongoDB, ElasticSearch, RabbitMQ, NodeJS and Webpack. We use Git as our
+            version control.</p
+          >
+          <p
+            >In my job before this, I use C#, ASP.NET, Internet Information Services (IIS) and
+            Microsoft SQL Server. But that was a long time ago. I quit that job because working as a
+            government contractor involves too much bureaucracy.</p
+          >
+          <p
+            >Currently, there&rsquo;s no problem that&rsquo;s causing me to leave my current
+            company. I applied because I&rsquo;m curious what other opportunities are out there. I
+            will never mass apply for positions. I send every application after careful
+            consideration of the job posting.</p
+          >
+          <p
+            >It&rsquo;s not a big challenge for me to pick up new technologies. I&rsquo;ve done that
+            for various personal projects without issue.</p
+          >
+          <p
+            >I&rsquo;m also familiar with raster image editors like GIMP and vector image editors
+            like Inkscape.</p
+          >
+        </div>
+      </section>
+
+      <div class="rainbow"></div>
+      <footer id="credits">
+        Thank you to Alexander Kahlkopf of
+        <a href="https://iconmonstr.com/" target="_blank" rel="noopener noreferrer">Iconmonstr</a>
+        for the icons.<br />
+        The paper texture and image of Scheveningen Beach are from
+        <a href="https://www.istockphoto.com/" target="_blank" rel="noopener noreferrer">iStock</a
+        >.<br />
+        Everything else is created by me.
+      </footer>
+    </div>
+
+    <script>
+      var oneTick = 1000 / 60;
+
+      var tick = function (func) {
+        setTimeout(function () {
+          func(oneTick, true);
+        }, oneTick);
+      };
+
+      if (typeof requestAnimationFrame !== "undefined") tick = requestAnimationFrame;
+
+      function initCanvas() {
+        var canvas = document.getElementById("particles");
+        var context = canvas.getContext("2d");
+
+        canvas.width = innerWidth;
+        canvas.height = Math.max(Math.min(innerHeight, innerWidth * 2) * 0.25, 160);
+
+        var size = Math.max(Math.min(innerHeight, innerWidth * 2) * 0.025, 14);
+        var count = Math.max((canvas.width * canvas.height) / (size * size) / 10, 28);
+
+        var imageLoadedCount = 0;
+        var imageOnLoad = function () {
+          imageLoadedCount += 1;
+          if (imageLoadedCount >= 3) tick(render);
+        };
+
+        var circle = new Image();
+        circle.src = "./images/circle.png";
+        circle.onload = imageOnLoad;
+
+        var triangle = new Image();
+        triangle.src = "./images/triangle.png";
+        triangle.onload = imageOnLoad;
+
+        var rectangle = new Image();
+        rectangle.src = "./images/rectangle.png";
+        rectangle.onload = imageOnLoad;
+
+        var images = [triangle, rectangle, circle];
+
+        var particles = [];
+
+        for (var i = 0; i < count; i++) {
+          var yLimit = (size / canvas.height) * 2;
+
+          var p = {
+            type: Math.floor(i / (count / 3)),
+            angle: Math.random() * Math.PI,
+            size: size * 0.67 + Math.random() * (size / 3),
+
+            x: Math.random(),
+            y: yLimit + Math.random() * (1 - yLimit * 2),
+
+            a: Math.random(),
+            b: 0,
+            c: Math.random(),
+            d: -1,
+
+            dAngle: 0.005 + Math.random() * 0.01,
+            dx: 1 + Math.random() * 3,
+            da: 0.005 + Math.random() * 0.005,
+          };
+
+          p.scaleY = Math.sqrt(p.c * p.c + p.d * p.d);
+          p.skewX = Math.atan2(-p.c, p.d) / Math.PI / 180;
+
+          particles.push(p);
+        }
+
+        var clear = function () {
+          context.setTransform(1, 0, 0, 1, 0, 0);
+          context.clearRect(0, 0, canvas.width, canvas.height);
+        };
+
+        var scaleX, scaleY, skewX, skewY, posX, posY;
+
+        var draw = function () {
+          particles.forEach(function (p) {
+            scaleX = Math.sqrt(p.a * p.a + p.b * p.b);
+            scaleY = p.scaleY;
+
+            skewX = p.skewX;
+            skewY = Math.atan2(p.b, p.a) / Math.PI / 180;
+
+            posX = canvas.width * p.x;
+            posY = canvas.height * p.y;
+
+            context.setTransform(scaleX, skewY, skewX, scaleY, posX, posY);
+            context.rotate(p.angle);
+            context.drawImage(images[p.type], 0, 0, size, size);
+          });
+        };
+
+        var update = function (speedFactor) {
+          particles.forEach(function (p) {
+            p.x += (p.dx / canvas.width) * speedFactor;
+            p.a += p.da * speedFactor;
+            p.angle = p.angle + p.dAngle * speedFactor;
+
+            if (p.x > 1) p.x = 0;
+            if (p.a < -1) p.a = 1;
+            if (p.a > 1) p.a = -1;
+            if (p.angle >= Math.PI || p.angle <= 0) p.dAngle *= -1;
+          });
+        };
+
+        var resizeTimeout = null;
+
+        window.onresize = function () {
+          if (innerWidth === canvas.width) return;
+
+          particles = [];
+
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(function () {
+            initCanvas();
+          }, 200);
+        };
+
+        var pause = false;
+
+        if (typeof IntersectionObserver !== "undefined") {
+          var observer = new IntersectionObserver(
+            function (entries) {
+              if (entries[0].isIntersecting) {
+                pause = true;
+                canvas.style.opacity = "0";
+              } else {
+                pause = false;
+                canvas.style.opacity = "1";
+              }
+            },
+            { threshold: [0.01] }
+          );
+
+          observer.observe(document.querySelector("#me"));
+        }
+
+        var lastTime, elapsed;
+
+        var render = function (time, isElapse) {
+          if (!pause) clear();
+
+          if (particles.length === 0) return;
+
+          if (!pause) {
+            elapsed = time;
+
+            if (!isElapse) {
+              if (lastTime == null) lastTime = time - oneTick;
+
+              elapsed -= lastTime;
+              lastTime = time;
+            }
+
+            update(Math.min(elapsed / oneTick, 2));
+            draw();
+          }
+
+          tick(render);
+        };
+      }
+
+      function initProjectNav() {
+        var projectList = document.querySelector("#projects ul");
+
+        var move = function (direction) {
+          var scrollWidth = projectList.scrollWidth;
+          var scrollLeft = projectList.scrollLeft;
+          var halfWidth = innerWidth / 2;
+
+          var rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+          var cardSize = rem * 17.5;
+
+          var middlePosition = scrollLeft + halfWidth;
+          var cardNearestToMiddle = Math.floor(middlePosition / cardSize);
+
+          var cardToScrollTo = cardNearestToMiddle + direction;
+          var whitespaceToCenterCard = halfWidth - cardSize / 2;
+
+          var scrollTo = cardToScrollTo * cardSize - whitespaceToCenterCard;
+
+          if (projectList.scrollTo) {
+            projectList.scrollTo({
+              top: 0,
+              left: scrollTo,
+              behavior: "smooth",
+            });
+          } else {
+            projectList.scrollLeft = scrollTo;
+          }
+        };
+
+        var leftButton = document.querySelector("#projects .left-arrow");
+        var rightButton = document.querySelector("#projects .right-arrow");
+
+        leftButton.addEventListener("click", function () {
+          move(-1);
+        });
+        rightButton.addEventListener("click", function () {
+          move(1);
+        });
+      }
+
+      tick(initCanvas);
+      initProjectNav();
+    </script>
+  </body>
+</html>
