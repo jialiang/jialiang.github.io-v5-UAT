@@ -21,7 +21,8 @@
         font-weight: 400;
         font-style: normal;
 
-        src: url(./fonts/noto-serif-jp-regular.woff) format("woff");
+        src: url(./fonts/noto-serif-jp-regular.woff2) format("woff2"),
+          url(./fonts/noto-serif-jp-regular.woff) format("woff");
       }
 
       @font-face {
@@ -29,7 +30,8 @@
         font-weight: 700;
         font-style: normal;
 
-        src: url(./fonts/noto-serif-jp-bold.woff) format("woff");
+        src: url(./fonts/noto-serif-jp-bold.woff2) format("woff2"),
+          url(./fonts/noto-serif-jp-bold.woff) format("woff");
       }
 
       @font-face {
@@ -41,9 +43,8 @@
           url(./fonts/chihaya-jun.woff) format("woff");
       }
 
-      ::selection,
       ::selection {
-        background: yellow;
+        background: rgba(255, 255, 0, 0.67);
       }
 
       html {
@@ -181,7 +182,6 @@
         margin: auto;
         transition: 0.35s opacity;
         opacity: 0;
-        box-shadow: 0 0 1rem black, 0 0 0.5rem rgba(0, 0, 0, 0.25);
       }
 
       @media (max-aspect-ratio: 16 / 9) {
@@ -220,7 +220,9 @@
           linear-gradient(to bottom, rgba(32, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 51%) 0 0/100%
             3em repeat-y,
           #b5edff;
-        box-shadow: rgba(0, 0, 0, 0.25) 0.5em 0.5em 1em 0;
+        box-shadow: rgba(0, 0, 0, 0.25) 0.5em 0.5em 1em 0,
+          rgba(0, 0, 0, 0.25) -0.5em -0.5em 1em 0 inset,
+          rgba(255, 255, 255, 0.2) 0.5em 0.5em 1em 0 inset;
       }
 
       header h1,
@@ -467,7 +469,7 @@
           overflow: auto;
           white-space: nowrap;
 
-          scrollbar-color: white transparent;
+          scrollbar-color: white rgba(255, 255, 255, 0);
         }
       }
 
@@ -611,8 +613,8 @@
         vertical-align: middle;
         border: 6px double darkorange;
         border-radius: 2rem;
-        background: beige;
-        background: beige url(./images/circles.png) 0 0 / auto 100% repeat-x;
+        background: papayawhip;
+        background: papayawhip url(./images/circles.png) 0 0 / auto 100% repeat-x;
         box-shadow: rgba(0, 0, 0, 0.25) 0.5rem 0.5rem 1rem 0;
       }
 
@@ -668,6 +670,8 @@
         letter-spacing: 0;
         color: #333;
         background: snow;
+        background: linear-gradient(rgba(255, 255, 255, 0), snow),
+          radial-gradient(aquamarine 25%, rgba(255, 255, 255, 0) 0) 0 0/5px 5px, snow;
         box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.25);
       }
     </style>
