@@ -196,6 +196,12 @@
         }
       }
 
+      @media (prefers-reduced-motion: reduce) {
+        #background {
+          transition: none !important;
+        }
+      }
+
       header {
         position: relative;
         z-index: 1;
@@ -988,6 +994,11 @@
 
     <script>
       var oneTick = 1000 / 60;
+      var prefersReducedMotion = false;
+
+      if (window.matchMedia) {
+        prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      }
 
       var tick = function (func) {
         setTimeout(function () {
@@ -998,6 +1009,8 @@
       if (typeof requestAnimationFrame !== "undefined") tick = requestAnimationFrame;
 
       function initCanvas() {
+        if (prefersReducedMotion) return;
+
         var canvas = document.getElementById("particles");
         var context = canvas.getContext("2d");
 
@@ -1169,7 +1182,7 @@
 
           var scrollTo = cardToScrollTo * cardSize - whitespaceToCenterCard;
 
-          if (projectList.scrollTo) {
+          if (projectList.scrollTo && !prefersReducedMotion) {
             projectList.scrollTo({
               top: 0,
               left: scrollTo,
