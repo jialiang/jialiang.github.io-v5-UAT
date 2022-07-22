@@ -1045,28 +1045,29 @@
         var particles = [];
 
         for (var i = 0; i < count; i++) {
-          var yLimit = (size / canvas.height) * 2;
+          var yLimit = size;
 
           var p = {
             type: Math.floor(i / (count / 3)),
             angle: Math.random() * Math.PI,
-            size: size * 0.67 + Math.random() * (size / 3),
+            size: size,
 
-            x: Math.random(),
-            y: yLimit + Math.random() * (1 - yLimit * 2),
+            x: Math.round(Math.random() * canvas.width),
+            y: Math.round(yLimit + Math.random() * (canvas.height - yLimit * 2)),
 
             a: Math.random(),
             b: 0,
             c: Math.random(),
             d: -1,
 
-            dAngle: 0.005 + Math.random() * 0.01,
-            dx: 1 + Math.random() * 3,
-            da: 0.005 + Math.random() * 0.005,
+            dAngle: 0.01 + Math.random() * 0.01,
+            dx: Math.round(1 + Math.random() * 3),
+            da: 0.01 + Math.random() * 0.01,
           };
 
           p.scaleY = Math.sqrt(p.c * p.c + p.d * p.d);
           p.skewX = Math.atan2(-p.c, p.d) / Math.PI / 180;
+          p.halfSize = p.size / 2;
 
           particles.push(p);
         }
@@ -1076,35 +1077,15 @@
           context.clearRect(0, 0, canvas.width, canvas.height);
         };
 
-        var scaleX, scaleY, skewX, skewY, posX, posY;
-
-        var draw = function () {
+        var draw = function (speedFactor) {
           particles.forEach(function (p) {
-            scaleX = Math.sqrt(p.a * p.a + p.b * p.b);
-            scaleY = p.scaleY;
-
-            skewX = p.skewX;
-            skewY = Math.atan2(p.b, p.a) / Math.PI / 180;
-
-            posX = canvas.width * p.x;
-            posY = canvas.height * p.y;
-
-            context.setTransform(scaleX, skewY, skewX, scaleY, posX, posY);
+            context.setTransform(Math.abs(p.a), 0, p.skewX, p.scaleY, p.x, p.y);
             context.rotate(p.angle);
-            context.drawImage(images[p.type], 0, 0, size, size);
-          });
-        };
+            context.drawImage(images[p.type], -p.halfSize, -p.halfSize, p.size, p.size);
 
-        var update = function (speedFactor) {
-          particles.forEach(function (p) {
-            p.x += (p.dx / canvas.width) * speedFactor;
-            p.a += p.da * speedFactor;
-            p.angle = p.angle + p.dAngle * speedFactor;
-
-            if (p.x > 1) p.x = 0;
-            if (p.a < -1) p.a = 1;
-            if (p.a > 1) p.a = -1;
-            if (p.angle >= Math.PI || p.angle <= 0) p.dAngle *= -1;
+            p.x = (p.x + p.dx * speedFactor) % canvas.width;
+            p.a = ((p.a + p.da * speedFactor + 1) % 2) - 1;
+            p.angle = (p.angle + p.dAngle * speedFactor) % (Math.PI * 2);
           });
         };
 
@@ -1140,7 +1121,8 @@
           observer.observe(document.querySelector("#me"));
         }
 
-        var lastTime, elapsed;
+        var lastTime = 0,
+          elapsed;
 
         var render = function (time, isElapse) {
           if (!pause) clear();
@@ -1151,14 +1133,11 @@
             elapsed = time;
 
             if (!isElapse) {
-              if (lastTime == null) lastTime = time - oneTick;
-
               elapsed -= lastTime;
               lastTime = time;
             }
 
-            update(Math.min(elapsed / oneTick, 2));
-            draw();
+            draw(elapsed / oneTick);
           }
 
           tick(render);
