@@ -1051,10 +1051,19 @@
         var canvas = document.getElementById("particles");
         var context = canvas.getContext("2d");
 
-        canvas.width = innerWidth;
-        canvas.height = Math.max(Math.min(innerHeight, innerWidth * 2) * 0.25, 160);
+        var pixelRatio = 1;
 
-        var size = Math.max(Math.min(innerHeight, innerWidth * 2) * 0.025, 14);
+        if (window.devicePixelRatio) pixelRatio = window.devicePixelRatio;
+
+        var realWidth = innerWidth * pixelRatio;
+        var realHeight = innerHeight * pixelRatio;
+
+        canvas.width = realWidth;
+        canvas.height = Math.max(Math.min(realHeight, realWidth * 2) * 0.25, 160 * pixelRatio);
+
+        var size = Math.round(
+          Math.max(Math.min(realHeight, realWidth * 2) * 0.025, 14 * pixelRatio)
+        );
         var count = Math.max((canvas.width * canvas.height) / (size * size) / 10, 28);
 
         var imageLoadedCount = 0;
@@ -1096,7 +1105,7 @@
             d: -1,
 
             dAngle: 0.01 + Math.random() * 0.01,
-            dx: Math.round(1 + Math.random() * 3),
+            dx: Math.round(1 + Math.random() * 3 * pixelRatio),
             da: 0.01 + Math.random() * 0.01,
           };
 
@@ -1127,7 +1136,7 @@
         var resizeTimeout = null;
 
         window.onresize = function () {
-          if (innerWidth === canvas.width) return;
+          if (innerWidth * pixelRatio === canvas.width) return;
 
           particles = [];
 
